@@ -4,6 +4,11 @@
   "main": "index.js",
   "author": "Daniel Mesquita <danielmesquitta123@gmail.com>",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec npm run commit"
+    }
+  },
   "scripts": {
     "commit": "cz"
   },
