@@ -1,6 +1,7 @@
 import { hash } from 'bcryptjs';
 import { getRepository } from 'typeorm';
 
+import { AppError } from '~/errors';
 import { User } from '~/models';
 
 interface Request {
@@ -16,7 +17,7 @@ class CreateAppointmentService {
       where: { email },
     });
     if (emailIsAlreadyRegistered) {
-      throw new Error('This email is already registered');
+      throw new AppError('This email is already registered');
     }
     const password_hash = await hash(password, 8);
     const user = userRepository.create({

@@ -3,6 +3,7 @@ import { join } from 'path';
 import { getRepository } from 'typeorm';
 
 import { uploadConfig } from '~/configs';
+import { AppError } from '~/errors';
 import { User } from '~/models';
 
 interface Request {
@@ -16,7 +17,7 @@ class UpdateUserAvatarService {
     const user = await usersRepository.findOne({
       where: { id: user_id },
     });
-    if (!user) throw new Error('Only authenticated users can change');
+    if (!user) throw new AppError('Only authenticated users can change', 401);
     if (user.avatar) {
       const avatarFilePath = join(uploadConfig.dest, user.avatar);
       const avatarExists = await fs.promises.stat(avatarFilePath);

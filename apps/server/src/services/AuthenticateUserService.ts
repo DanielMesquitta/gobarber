@@ -3,6 +3,7 @@ import { sign } from 'jsonwebtoken';
 import { getRepository } from 'typeorm';
 
 import { authConfig } from '~/configs';
+import { AppError } from '~/errors';
 import { User } from '~/models';
 
 interface Request {
@@ -19,10 +20,10 @@ class AuthenticateUserService {
   public async execute({ email, password }: Request): Promise<Response> {
     const usersRepository = getRepository(User);
     const user = await usersRepository.findOne({ where: { email } });
-    if (!user) throw new Error('Incorrect email/password combination');
+    if (!user) throw new AppError('Incorrect email/password combination', 401);
     const passwordMatched = await compare(password, user.password_hash);
     if (!passwordMatched)
-      throw new Error('Incorrect email/password combination');
+      throw new AppError('Incorrect email/password combination', 401);
     const { secret, expiresIn } = authConfig.jwt;
     const token = sign({}, secret, {
       subject: user.id,
