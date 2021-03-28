@@ -1,3 +1,4 @@
+import { hash } from 'bcryptjs';
 import { getRepository } from 'typeorm';
 
 import { User } from '~/models';
@@ -17,9 +18,15 @@ class CreateAppointmentService {
     if (emailIsAlreadyRegistered) {
       throw new Error('This email is already registered');
     }
-    const appointment = userRepository.create({ name, email, password });
-    await userRepository.save(appointment);
-    return appointment;
+    const password_hash = await hash(password, 8);
+    const user = userRepository.create({
+      name,
+      email,
+      password_hash,
+    });
+    await userRepository.save(user);
+    delete user.password_hash;
+    return user;
   }
 }
 

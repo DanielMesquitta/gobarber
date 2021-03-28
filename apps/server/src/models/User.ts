@@ -18,7 +18,7 @@ class User {
   email: string;
 
   @Column()
-  password: string;
+  password_hash: string;
 
   @CreateDateColumn()
   created_at: Date;

@@ -5,10 +5,11 @@
     "lib": ["es6"],
     "removeComments": true,
     "strict": true,
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "typeRoots": ["*/node_modules/@types", "*/src/@types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": false
   }
 }
