@@ -17,11 +17,13 @@
   "plugins": ["@typescript-eslint", "prettier", "eslint-plugin-import-helpers"],
   "rules": {
     "prettier/prettier": "error",
+    "class-methods-use-this": "off",
     "space-before-function-paren": "off",
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-param-reassign": "off",
+    "camelcase": "off",
     "import-helpers/order-imports": [
       "warn",
       {

@@ -6,25 +6,23 @@
   "scripts": {
     "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src",
     "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./dist",
-    "start": "node dist"
+    "start": "node dist",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js",
+    "db:migrate": "yarn typeorm migration:run",
+    "db:revert": "yarn typeorm migration:revert"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "date-fns": "^2.19.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.31"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.37",
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
-    "eslint": "^7.23.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-import-helpers": "^1.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",
     "tscpaths": "^0.0.9",
