@@ -6,6 +6,6 @@ type Theme = typeof theme;
 
 declare module 'styled-components' {
   export interface DefaultTheme extends Theme {
-    _?: string;
+    colors: typeof theme.colors;
   }
 }

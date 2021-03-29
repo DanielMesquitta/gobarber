@@ -1,21 +1,17 @@
 export default {
-  family: '"Lato", sans-serif',
+  family: '"Roboto", sans-serif',
 
   weight: {
-    black: 900,
-    bold: 700,
+    bold: 500,
     regular: 400,
   },
 
   size: {
-    h1: 72,
-    h2: 28,
-    h3: 14,
-    h4: 40,
-    h5: 24,
-    h6: 42,
-    h7: 32,
-    p: 16,
-    caption: 14,
+    h1: '52px',
+    h2: '40px',
+    h3: '32px',
+    h4: '24px',
+    p: '16px',
+    caption: '14px',
   },
 };
