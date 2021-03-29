@@ -6,11 +6,9 @@ const GlobalStyle = createGlobalStyle`
   *::before {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
-
-    &, &:focus {
-      outline: 0;
-    }
+    transition: all 0.2s;
   }
 
   html {
@@ -37,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-font-smoothing: antialiased !important;
-    background: ${({ theme }) => theme.colors.gray._400};
+    background: ${({ theme }) => theme.colors.gray._300};
   }
 
   body, input, textarea, button, a, a:visited {

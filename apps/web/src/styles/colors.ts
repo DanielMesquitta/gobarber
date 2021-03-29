@@ -1,5 +1,10 @@
+import { shade } from 'polished';
+
 export default {
-  primary: '#FF9000',
+  primary: {
+    _100: '#FF9000',
+    _200: shade(0.2, '#FF9000'),
+  },
 
   gray: {
     _000: '#F4EDE8',
