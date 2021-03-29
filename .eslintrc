@@ -7,22 +7,35 @@
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier", "eslint-plugin-import-helpers"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "eslint-plugin-import-helpers",
+    "react"
+  ],
   "rules": {
     "prettier/prettier": "error",
+    "no-use-before-define": "off",
     "class-methods-use-this": "off",
     "space-before-function-paren": "off",
+    "react/prop-types": "off",
     "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/extensions": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-param-reassign": "off",
+    "react/jsx-props-no-spreading": "off",
     "camelcase": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -30,11 +43,33 @@
         "argsIgnorePattern": "_"
       }
     ],
+    "no-underscore-dangle": [
+      1,
+      {
+        "allow": [
+          "_000",
+          "_100",
+          "_200",
+          "_300",
+          "_400",
+          "_500",
+          "_600",
+          "_700",
+          "_800",
+          "_900"
+        ]
+      }
+    ],
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": ["module", "/^~/", ["parent", "sibling", "index"]],
+        "groups": [
+          "/^react/",
+          "module",
+          "/^~/",
+          ["parent", "sibling", "index"]
+        ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]
