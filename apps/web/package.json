@@ -7,6 +7,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
     "next": "latest",
     "polished": "^4.1.1",
     "react": "^16.8.0",
