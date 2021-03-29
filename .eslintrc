@@ -4,10 +4,11 @@
     "node": true
   },
   "extends": [
-    "airbnb-base",
+    "airbnb",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:prettier/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -19,10 +20,10 @@
     "sourceType": "module"
   },
   "plugins": [
+    "react",
     "@typescript-eslint",
     "prettier",
-    "eslint-plugin-import-helpers",
-    "react"
+    "eslint-plugin-import-helpers"
   ],
   "rules": {
     "prettier/prettier": "error",

@@ -1,10 +1,11 @@
 import React from 'react';
-import { FiLogIn } from 'react-icons/fi';
+import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 
 import Link from 'next/link';
 
 import { Logo } from '~/assets';
-import { Container, Content, Background } from '~/styles/pages/SignIn';
+import { Button, Input } from '~/components';
+import { Container, Content, Background } from '~/styles/pages/Sign';
 
 const SignIn: React.FC = () => {
   return (
@@ -13,20 +14,25 @@ const SignIn: React.FC = () => {
         <Logo />
         <form>
           <h1>Log in</h1>
-          <input type="email" required placeholder="E-mail" />
-          <input type="password" required placeholder="Password" />
-          <button type="submit">Enter</button>
+          <Input icon={FiMail} name="email" placeholder="E-mail" />
+          <Input
+            icon={FiLock}
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <Button type="submit">Enter</Button>
           <Link href="/sign/recover">Forgot password</Link>
         </form>
 
         <Link href="/sign/up">
-          <a>
+          <button type="button">
             <FiLogIn />
             Create account
-          </a>
+          </button>
         </Link>
       </Content>
-      <Background></Background>
+      <Background url="/sign-in-background.png" />
     </Container>
   );
 };

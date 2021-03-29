@@ -1,6 +1,5 @@
 import * as styles from '~/styles';
 
-// eslint-disable-next-line
 const { GlobalStyle: _, ...theme } = styles;
 
 type Theme = typeof theme;
