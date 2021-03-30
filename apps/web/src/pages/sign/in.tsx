@@ -4,10 +4,12 @@ import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles, SubmitHandler } from '@unform/core';
 import { Form } from '@unform/web';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as Yup from 'yup';
 
 import { Logo } from '~/assets';
 import { Button, Input } from '~/components';
+import { useAuth, useToast } from '~/hooks';
 import { Container, Content, Background } from '~/styles/pages/Sign';
 import { getValidationErrors } from '~/utils';
 
@@ -19,19 +21,41 @@ interface FormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback<SubmitHandler<FormData>>(async (data) => {
-    try {
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .email('Invalid e-mail format')
-          .required('The e-mail is required'),
-        password: Yup.string().required('The password is required'),
-      });
-      await schema.validate(data, { abortEarly: false });
-    } catch (err) {
-      formRef.current.setErrors(getValidationErrors(err));
-    }
-  }, []);
+  const { signIn } = useAuth();
+  const { addToast } = useToast();
+  const router = useRouter();
+
+  const handleSubmit = useCallback<SubmitHandler<FormData>>(
+    async (credentials) => {
+      try {
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .email('Invalid e-mail format')
+            .required('The e-mail is required'),
+          password: Yup.string().required('The password is required'),
+        });
+        await schema.validate(credentials, { abortEarly: false });
+        try {
+          await signIn(credentials);
+          addToast({
+            type: 'success',
+            title: 'Success',
+            description: 'You successfully logged in.',
+          });
+          router.push('/dashboard');
+        } catch (err) {
+          addToast({
+            type: 'error',
+            title: 'Error',
+            description: 'Failed to log in, verify your credentials.',
+          });
+        }
+      } catch (err) {
+        formRef.current.setErrors(getValidationErrors(err));
+      }
+    },
+    [addToast, router, signIn]
+  );
 
   return (
     <Container>
