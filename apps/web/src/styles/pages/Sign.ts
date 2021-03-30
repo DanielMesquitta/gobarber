@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Button from '~/components/Button/styles';
-import Input from '~/components/Input/styles';
+import { Container as Input } from '~/components/Input/styles';
 
 export const Container = styled.div`
   min-height: 100vh;

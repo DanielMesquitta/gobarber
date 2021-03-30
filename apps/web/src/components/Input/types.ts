@@ -1,9 +1,13 @@
 import React, { InputHTMLAttributes } from 'react';
 import { IconBaseProps } from 'react-icons/lib';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
 }
 
-export default Props;
+export interface ContainerProps {
+  isFilled?: boolean;
+  isFocused?: boolean;
+  hasError?: boolean;
+}

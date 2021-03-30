@@ -4,6 +4,7 @@ import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import Link from 'next/link';
+import * as Yup from 'yup';
 
 import { Logo } from '~/assets';
 import { Button, Input } from '~/components';
@@ -17,9 +18,7 @@ interface FormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback((data: FormData) => {
-    console.log(data);
-  }, []);
+  const handleSubmit = useCallback((data: FormData) => {}, []);
 
   return (
     <Container>
