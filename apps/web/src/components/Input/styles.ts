@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Tooltip } from '~/components';
-
+import Tooltip from '../Tooltip';
 import { ContainerProps } from './types';
 
 export const Container = styled.div<ContainerProps>`

@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 
-import { FormHandles } from '@unform/core';
+import { FormHandles, SubmitHandler } from '@unform/core';
 import { Form } from '@unform/web';
 import Link from 'next/link';
 import * as Yup from 'yup';
@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import { Logo } from '~/assets';
 import { Button, Input } from '~/components';
 import { Container, Content, Background } from '~/styles/pages/Sign';
+import { getValidationErrors } from '~/utils';
 
 interface FormData {
   email: string;
@@ -18,7 +19,19 @@ interface FormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback((data: FormData) => {}, []);
+  const handleSubmit = useCallback<SubmitHandler<FormData>>(async (data) => {
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .email('Invalid e-mail format')
+          .required('The e-mail is required'),
+        password: Yup.string().required('The password is required'),
+      });
+      await schema.validate(data, { abortEarly: false });
+    } catch (err) {
+      formRef.current.setErrors(getValidationErrors(err));
+    }
+  }, []);
 
   return (
     <Container>
