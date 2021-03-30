@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 
+import { RootProvider } from '~/hooks';
 import * as styles from '~/styles';
 
 const { GlobalStyle, ...theme } = styles;
@@ -19,8 +20,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
       />
     </Head>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <RootProvider>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </RootProvider>
     </ThemeProvider>
   </>
 );

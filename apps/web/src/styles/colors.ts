@@ -15,8 +15,21 @@ export default {
   },
 
   status: {
-    error: '#D74B29',
-    success: '#00A28F',
-    warning: '#FFB900',
+    error: {
+      _100: '#FDDEDE',
+      _200: '#C53030',
+    },
+    success: {
+      _100: '#E6FFFA',
+      _200: '#2E656A',
+    },
+    warning: {
+      _100: '#FFB900',
+      _200: '#FFB900',
+    },
+    info: {
+      _100: '#EBF8FF',
+      _200: '#3172B7',
+    },
   },
 };
