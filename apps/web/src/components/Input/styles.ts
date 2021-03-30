@@ -35,7 +35,7 @@ export const Container = styled.div<ContainerProps>`
   ${({ hasError }) =>
     hasError &&
     css`
-      border: 2px solid ${({ theme }) => theme.colors.status.error};
+      border: 2px solid ${({ theme }) => theme.colors.status.error._200};
     `}
 
   input {
@@ -53,15 +53,15 @@ export const Error = styled(Tooltip)`
     margin: 0;
     width: 20px;
     height: 20px;
-    color: ${({ theme }) => theme.colors.status.error};
+    color: ${({ theme }) => theme.colors.status.error._200};
   }
 
   span {
     color: ${({ theme }) => theme.colors.gray._000} !important;
-    background: ${({ theme }) => theme.colors.status.error} !important;
+    background: ${({ theme }) => theme.colors.status.error._200} !important;
 
     &::before {
-      border-color: ${({ theme }) => theme.colors.status.error} transparent !important;
+      border-color: ${({ theme }) => theme.colors.status.error._200} transparent !important;
     }
   }
 `;
