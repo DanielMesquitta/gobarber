@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { AuthProvider, useAuth } from './auth';
+import useFetch from './fetch';
 import { ToastProvider, useToast } from './toast';
 import { ToastProviderProps } from './toast/types';
 
@@ -12,4 +13,4 @@ const RootProvider: React.FC<Props> = ({ children, toastTimeout }) => (
   </AuthProvider>
 );
 
-export { RootProvider, useAuth, useToast };
+export { RootProvider, useAuth, useToast, useFetch };

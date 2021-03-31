@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import { Logo } from '~/assets';
 import { Button, Input } from '~/components';
 import { useAuth, useToast } from '~/hooks';
+import { PublicRouter } from '~/services';
 import { Container, Content, Background } from '~/styles/pages/Sign';
 import { getValidationErrors } from '~/utils';
 
@@ -42,7 +43,7 @@ const SignIn: React.FC = () => {
             title: 'Success',
             description: 'You successfully logged in.',
           });
-          router.push('/dashboard');
+          router.replace('/dashboard');
         } catch (err) {
           addToast({
             type: 'error',
@@ -86,4 +87,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default PublicRouter(SignIn);

@@ -1,13 +1,7 @@
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 
 import { api } from '~/services';
-import { setCookie, removeCookie, getCookie } from '~/utils';
+import { setCookie, removeCookie } from '~/utils';
 
 import { AuthContextState, SignInResponse } from './types';
 
@@ -16,23 +10,12 @@ const AuthContext = createContext<AuthContextState>({} as AuthContextState);
 const AuthProvider: React.FC = ({ children, ...rest }) => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    try {
-      const auth = JSON.parse(getCookie('auth')) as SignInResponse;
-      if (auth.token) {
-        setUser(auth.user);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
   const signIn = useCallback(async ({ email, password }) => {
     const { data } = await api.post<SignInResponse>('/sessions', {
       email,
       password,
     });
-    setCookie('auth', JSON.stringify(data));
+    setCookie('auth', data);
     setUser(data.user);
     return data;
   }, []);

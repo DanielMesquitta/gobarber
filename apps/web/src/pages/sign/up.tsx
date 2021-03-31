@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 
 import { Logo } from '~/assets';
 import { Button, Input } from '~/components';
+import { PublicRouter } from '~/services';
 import { Container, Content, Background } from '~/styles/pages/Sign';
 import { getValidationErrors } from '~/utils';
 
@@ -66,4 +67,4 @@ const SignUp: React.FC = () => {
   );
 };
 
-export default SignUp;
+export default PublicRouter(SignUp);

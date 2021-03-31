@@ -18,6 +18,7 @@
     "react-icons": "^4.2.0",
     "react-is": "^16.8.0",
     "styled-components": "^5.0.0",
+    "swr": "^0.5.5",
     "uuidv4": "^6.2.7",
     "yup": "^0.32.9"
   },

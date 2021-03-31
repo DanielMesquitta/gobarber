@@ -3,8 +3,6 @@ import { FiAlertCircle } from 'react-icons/fi';
 
 import { useField } from '@unform/core';
 
-import { colors } from '~/styles';
-
 import { Container, Error } from './styles';
 import { Props } from './types';
 
@@ -45,7 +43,7 @@ const Input: React.FC<Props> = ({ icon: Icon, name, ...rest }) => {
       />
       {error && (
         <Error title={error}>
-          <FiAlertCircle color={colors.status.error} />
+          <FiAlertCircle />
         </Error>
       )}
     </Container>
