@@ -4,11 +4,13 @@ import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { FormHandles, SubmitHandler } from '@unform/core';
 import { Form } from '@unform/web';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as Yup from 'yup';
 
 import { Logo } from '~/assets';
 import { Button, Input } from '~/components';
-import { PublicRouter } from '~/services';
+import { useToast } from '~/hooks';
+import { api, PublicRouter } from '~/services';
 import { Container, Content, Background } from '~/styles/pages/Sign';
 import { getValidationErrors } from '~/utils';
 
@@ -20,6 +22,8 @@ interface FormData {
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const { addToast } = useToast();
+  const router = useRouter();
 
   const handleSubmit = useCallback<SubmitHandler<FormData>>(async (data) => {
     try {
@@ -34,6 +38,21 @@ const SignUp: React.FC = () => {
         ),
       });
       await schema.validate(data, { abortEarly: false });
+      try {
+        await api.post('/users', data);
+        addToast({
+          type: 'success',
+          title: 'Success',
+          description: 'You successfully created an user.',
+        });
+        router.push('/sign/in');
+      } catch ({ response }) {
+        addToast({
+          type: 'error',
+          title: 'Error',
+          description: response.data.message,
+        });
+      }
     } catch (err) {
       formRef.current.setErrors(getValidationErrors(err));
     }

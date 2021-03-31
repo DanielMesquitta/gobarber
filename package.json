@@ -4,11 +4,6 @@
   "author": "Daniel Mesquita <danielmesquitta123@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
   "scripts": {
     "commit": "cz"
   },

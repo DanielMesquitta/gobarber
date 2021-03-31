@@ -44,11 +44,11 @@ const SignIn: React.FC = () => {
             description: 'You successfully logged in.',
           });
           router.replace('/dashboard');
-        } catch (err) {
+        } catch ({ response }) {
           addToast({
             type: 'error',
             title: 'Error',
-            description: 'Failed to log in, verify your credentials.',
+            description: response.data.message,
           });
         }
       } catch (err) {

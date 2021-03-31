@@ -5,7 +5,7 @@ import { hexToRgba } from '~/utils';
 import { ToastProps } from './types';
 
 export const Container = styled.div`
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   padding: 3rem;
