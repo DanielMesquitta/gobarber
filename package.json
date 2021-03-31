@@ -1,9 +1,14 @@
 {
   "name": "gobarber",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Daniel Mesquita <danielmesquitta123@gmail.com>",
   "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "commit": "cz"
   },
