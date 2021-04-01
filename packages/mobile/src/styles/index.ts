@@ -1,5 +1,3 @@
-export { default as GlobalContainer } from './global';
-
 export { default as colors } from './colors';
 
-export { default as typography } from './typography';
+export { default as fonts } from './fonts';

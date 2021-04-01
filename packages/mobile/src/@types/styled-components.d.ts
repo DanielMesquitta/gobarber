@@ -1,6 +1,4 @@
-import * as styles from '~/styles';
-
-const { GlobalContainer: _, ...theme } = styles;
+import * as theme from '~/styles';
 
 type Theme = typeof theme;
 
