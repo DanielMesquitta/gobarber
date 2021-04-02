@@ -6,6 +6,7 @@ export interface Props extends ContainedTouchableProperties {
   children: string;
   appearance?: Appearance;
   icon?: string;
+  href: string;
 }
 
 export interface TextProps {

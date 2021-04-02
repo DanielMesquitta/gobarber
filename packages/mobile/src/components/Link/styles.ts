@@ -1,11 +1,9 @@
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
 import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
 import { IconProps, TextProps } from './types';
 
-export const Container = styled(TouchableOpacity)`
+export const Container = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;

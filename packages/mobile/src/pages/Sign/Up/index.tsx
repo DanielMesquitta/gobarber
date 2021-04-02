@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 
 import logo from '~/assets/images/logo.png';
 import { Wrapper } from '~/components';
+import { useKeyboard } from '~/hooks';
 import {
   Container,
   Title,
@@ -11,22 +12,28 @@ import {
   BottomLink,
 } from '~/pages/Sign/styles';
 
-const SignUp: React.FC = () => (
-  <Wrapper>
-    <Container>
-      <Image source={logo} />
-      <Title>Create account</Title>
+const SignUp: React.FC = () => {
+  const { isKeyboardOpen } = useKeyboard();
 
-      <Input name="name" icon="user" placeholder="Name" />
-      <Input name="email" icon="mail" placeholder="E-mail" />
-      <Input name="password" icon="lock" placeholder="Password" />
+  return (
+    <Wrapper>
+      <Container>
+        <Image source={logo} />
+        <Title>Create account</Title>
 
-      <Button>Submit</Button>
-    </Container>
-    <BottomLink appearance="secondary" icon="arrow-left">
-      Log in
-    </BottomLink>
-  </Wrapper>
-);
+        <Input name="name" icon="user" placeholder="Name" />
+        <Input name="email" icon="mail" placeholder="E-mail" />
+        <Input name="password" icon="lock" placeholder="Password" />
+
+        <Button>Submit</Button>
+      </Container>
+      {!isKeyboardOpen && (
+        <BottomLink href="SignIn" appearance="secondary" icon="arrow-left">
+          Log in
+        </BottomLink>
+      )}
+    </Wrapper>
+  );
+};
 
 export default SignUp;

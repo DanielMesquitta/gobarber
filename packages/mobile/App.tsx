@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components/native';
 
 import RobotoSlabMedium from '~/assets/fonts/RobotoSlab-Medium.ttf';
 import RobotoSlabRegular from '~/assets/fonts/RobotoSlab-Regular.ttf';
+import { RootProvider } from '~/hooks';
 import Routes from '~/routes';
 import * as theme from '~/styles';
 
@@ -22,7 +23,9 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <StatusBar backgroundColor={theme.colors.gray._300} />
-        <Routes />
+        <RootProvider>
+          <Routes />
+        </RootProvider>
       </ThemeProvider>
     </>
   );
