@@ -1,4 +1,4 @@
 export default {
-  regular: 'Roboto-Regular',
-  bold: 'Roboto-Medium',
+  regular: 'RobotoSlab-Regular',
+  bold: 'RobotoSlab-Medium',
 };

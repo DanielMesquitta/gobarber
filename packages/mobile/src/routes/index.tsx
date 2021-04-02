@@ -15,6 +15,7 @@ const PublicRoutes: React.FC = () => (
         headerShown: false,
         cardStyle: { backgroundColor: colors.gray._300 },
       }}
+      initialRouteName="SignUp"
     >
       <Screen name="SignIn" component={SignIn} />
       <Screen name="SignUp" component={SignUp} />
