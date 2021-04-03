@@ -1,11 +1,10 @@
-import { parseISO } from 'date-fns';
 import { Router } from 'express';
-import { container } from 'tsyringe';
 
-import { CreateAppointmentService } from '@modules/appointments/services';
+import { AppointmentsController } from '@modules/appointments/infra/http/controllers';
 import { ensureAuthenticated } from '@modules/users/infra/http/middlewares';
 
 const appointmentsRouter = Router();
+const appointmentsController = new AppointmentsController();
 
 appointmentsRouter.use(ensureAuthenticated);
 
@@ -14,15 +13,6 @@ appointmentsRouter.use(ensureAuthenticated);
 //   return res.json(appointments);
 // });
 
-appointmentsRouter.post('/', async (req, res) => {
-  const { provider_id, date } = req.body;
-  const parsedDate = parseISO(date);
-  const createAppointmentService = container.resolve(CreateAppointmentService);
-  const appointment = await createAppointmentService.execute({
-    date: parsedDate,
-    provider_id,
-  });
-  return res.json(appointment);
-});
+appointmentsRouter.post('/', appointmentsController.create);
 
 export default appointmentsRouter;
