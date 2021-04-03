@@ -1,29 +1,23 @@
 import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
-import {
-  CardStyleInterpolators,
-  createStackNavigator,
-} from '@react-navigation/stack';
+import AppLoading from 'expo-app-loading';
 
-import { SignIn, SignUp } from '~/pages';
-import { colors } from '~/styles';
+import { useAuth } from '~/hooks';
 
-const { Navigator, Screen } = createStackNavigator();
+import PrivateRoutes from './private.routes';
+import PublicRoutes from './public.routes';
 
-const PublicRoutes: React.FC = () => (
-  <NavigationContainer>
-    <Navigator
-      screenOptions={{
-        headerShown: false,
-        cardStyle: { backgroundColor: colors.gray._300 },
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-      }}
-    >
-      <Screen name="SignIn" component={SignIn} />
-      <Screen name="SignUp" component={SignUp} />
-    </Navigator>
-  </NavigationContainer>
-);
+const Routes: React.FC = () => {
+  const { user, loading } = useAuth();
 
-export default PublicRoutes;
+  if (loading) return <AppLoading />;
+
+  return (
+    <NavigationContainer>
+      {user ? <PrivateRoutes /> : <PublicRoutes />}
+    </NavigationContainer>
+  );
+};
+
+export default Routes;

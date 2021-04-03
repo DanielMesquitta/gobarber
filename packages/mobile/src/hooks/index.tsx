@@ -1,9 +1,13 @@
 import React from 'react';
 
+import { AuthProvider, useAuth } from './auth';
+import useFetch from './fetch';
 import { KeyboardProvider, useKeyboard } from './keyboard';
 
 const RootProvider: React.FC = ({ children }) => (
-  <KeyboardProvider>{children}</KeyboardProvider>
+  <AuthProvider>
+    <KeyboardProvider>{children}</KeyboardProvider>
+  </AuthProvider>
 );
 
-export { RootProvider, useKeyboard };
+export { RootProvider, useAuth, useKeyboard, useFetch };

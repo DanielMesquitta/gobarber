@@ -2,7 +2,7 @@ import cookie from 'js-cookie';
 
 const prefix = '@GoBarber';
 
-const setCookie = (name: string, data: string | { [key: string]: any }) => {
+const setCookie = (name: string, data: any) => {
   cookie.set(`${prefix}:${name}`, data, { expires: 1 });
 };
 

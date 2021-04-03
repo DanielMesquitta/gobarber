@@ -17,6 +17,10 @@ const KeyboardProvider: React.FC = ({ children, ...rest }) => {
     Keyboard.addListener('keyboardDidShow', () => {
       setIsKeyboardOpen(true);
     });
+    return () => {
+      Keyboard.removeAllListeners('keyboardDidShow');
+      Keyboard.removeAllListeners('keyboardDidHide');
+    };
   }, []);
 
   return (

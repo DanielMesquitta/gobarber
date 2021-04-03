@@ -25,38 +25,41 @@ const SignUp: React.FC = () => {
   const { addToast } = useToast();
   const router = useRouter();
 
-  const handleSubmit = useCallback<SubmitHandler<FormData>>(async (data) => {
-    try {
-      const schema = Yup.object().shape({
-        name: Yup.string().required('The name field is required'),
-        email: Yup.string()
-          .email('Invalid e-mail format')
-          .required('The e-mail field is required'),
-        password: Yup.string().min(
-          6,
-          'The password length needs to be greater than 6'
-        ),
-      });
-      await schema.validate(data, { abortEarly: false });
+  const handleSubmit = useCallback<SubmitHandler<FormData>>(
+    async (data) => {
       try {
-        await api.post('/users', data);
-        addToast({
-          type: 'success',
-          title: 'Success',
-          description: 'You successfully created an user.',
+        const schema = Yup.object().shape({
+          name: Yup.string().required('The name field is required'),
+          email: Yup.string()
+            .email('Invalid e-mail format')
+            .required('The e-mail field is required'),
+          password: Yup.string().min(
+            6,
+            'The password length needs to be greater than 6'
+          ),
         });
-        router.push('/sign/in');
-      } catch ({ response }) {
-        addToast({
-          type: 'error',
-          title: 'Error',
-          description: response.data.message,
-        });
+        await schema.validate(data, { abortEarly: false });
+        try {
+          await api.post('/users', data);
+          addToast({
+            type: 'success',
+            title: 'Success',
+            description: 'You successfully created an user.',
+          });
+          router.push('/sign/in');
+        } catch ({ response }) {
+          addToast({
+            type: 'error',
+            title: 'Error',
+            description: response.data.message,
+          });
+        }
+      } catch (err) {
+        formRef.current.setErrors(getValidationErrors(err));
       }
-    } catch (err) {
-      formRef.current.setErrors(getValidationErrors(err));
-    }
-  }, []);
+    },
+    [addToast, router]
+  );
 
   return (
     <Container>

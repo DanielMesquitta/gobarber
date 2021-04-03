@@ -32,6 +32,7 @@ export const Button = styled(StyledButton)`
 export const BottomLink = styled(Link)`
   width: 100%;
   border-top-width: 1px;
+  padding-bottom: 24px;
   border-top-color: ${({ theme }) => theme.colors.gray._400};
   background: ${({ theme }) => theme.colors.gray._300};
 `;
