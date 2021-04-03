@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { AppError } from '~/errors';
+import { AppError } from '@shared/errors';
 
 export default function globalExceptionHandler(
   err: Error,

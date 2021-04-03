@@ -2,9 +2,9 @@ import fs from 'fs';
 import { join } from 'path';
 import { getRepository } from 'typeorm';
 
-import { uploadConfig } from '~/configs';
-import { AppError } from '~/errors';
-import { User } from '~/models';
+import { uploadConfig } from '@configs';
+import { User } from '@modules/users/infra/typeorm/entities';
+import { AppError } from '@shared/errors';
 
 interface Request {
   user_id: string;

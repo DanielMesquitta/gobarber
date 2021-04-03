@@ -1,10 +1,12 @@
 import 'reflect-metadata';
 import cors from 'cors';
 import express from 'express';
-import 'express-async-errors';
 
-import './database';
-import { uploadConfig } from './configs';
+import 'express-async-errors';
+import '@shared/infra/typeorm';
+
+import { uploadConfig } from '@configs';
+
 import { globalExceptionHandler } from './middlewares';
 import routes from './routes';
 
