@@ -4,6 +4,7 @@ import express from 'express';
 
 import 'express-async-errors';
 import '@shared/infra/typeorm';
+import '@shared/container';
 
 import { uploadConfig } from '@configs';
 

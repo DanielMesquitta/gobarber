@@ -1,2 +1,2 @@
-// eslint-disable-next-line
-export { default as AppointmentsRepository } from './AppointmentsRepository';
+/* eslint-disable import/prefer-default-export */
+export { IAppointmentsRepository } from './IAppointmentsRepository';

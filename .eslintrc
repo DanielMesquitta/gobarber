@@ -37,6 +37,18 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-param-reassign": "off",
     "react/jsx-props-no-spreading": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
     "camelcase": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",

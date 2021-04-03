@@ -1,22 +1,28 @@
 import fs from 'fs';
 import { join } from 'path';
+import { injectable, inject } from 'tsyringe';
 import { getRepository } from 'typeorm';
 
 import { uploadConfig } from '@configs';
 import { User } from '@modules/users/infra/typeorm/entities';
+import { IUsersRepository } from '@modules/users/repositories';
 import { AppError } from '@shared/errors';
 
-interface Request {
+interface IRequest {
   user_id: string;
   filename: string;
 }
 
+@injectable()
 class UpdateUserAvatarService {
-  public async execute({ user_id, filename }: Request): Promise<User> {
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository
+  ) {}
+
+  public async execute({ user_id, filename }: IRequest): Promise<User> {
     const usersRepository = getRepository(User);
-    const user = await usersRepository.findOne({
-      where: { id: user_id },
-    });
+    const user = await this.usersRepository.findById(user_id);
     if (!user) throw new AppError('Only authenticated users can change', 401);
     if (user.avatar) {
       const avatarFilePath = join(uploadConfig.dest, user.avatar);
