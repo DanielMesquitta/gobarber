@@ -1,1 +1,2 @@
 *.js
+packages/server/**/index.ts
