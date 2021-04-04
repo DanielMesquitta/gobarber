@@ -26,6 +26,11 @@ class UsersRepository implements IUsersRepository {
     await this.ormRepository.save(user);
     return user;
   }
+
+  public async save(user: User): Promise<User> {
+    const updatedUser = await this.ormRepository.save(user);
+    return updatedUser;
+  }
 }
 
 export default UsersRepository;

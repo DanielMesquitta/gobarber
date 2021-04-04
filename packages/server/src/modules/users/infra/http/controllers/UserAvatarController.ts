@@ -10,6 +10,7 @@ class UserAvatarController {
       user_id: req.user.id,
       filename: req.file.filename,
     });
+    delete user.password_hash;
     return res.json(user);
   }
 }

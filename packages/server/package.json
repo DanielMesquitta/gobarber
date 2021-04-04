@@ -8,6 +8,7 @@
     "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "start": "node ./dist/shared/infra/http/server.js",
     "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "test": "jest",
     "db:migrate": "yarn typeorm migration:run",
     "db:revert": "yarn typeorm migration:revert",
     "db:restart": "yarn db:revert; yarn db:revert; yarn db:revert; yarn db:migrate"
@@ -23,7 +24,8 @@
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.5.0",
-    "typeorm": "^0.2.31"
+    "typeorm": "^0.2.31",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -32,6 +34,9 @@
     "@types/jsonwebtoken": "^8.5.1",
     "@types/multer": "^1.4.5",
     "@types/node": "^14.14.37",
+    "@types/uuid": "^8.3.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",
     "tscpaths": "^0.0.9",

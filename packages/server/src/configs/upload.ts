@@ -3,9 +3,17 @@ import multer, { Options } from 'multer';
 import { resolve } from 'path';
 
 const tmpFolder = resolve(__dirname, '..', '..', 'tmp');
+const uploadsFolder = resolve(tmpFolder, 'uploads');
+
+interface IUploadsConfigs extends Options {
+  tmpFolder: string;
+  uploadsFolder: string;
+}
 
 export default {
-  dest: tmpFolder,
+  tmpFolder,
+
+  uploadsFolder,
 
   storage: multer.diskStorage({
     destination: tmpFolder,
@@ -42,4 +50,4 @@ export default {
       );
     }
   },
-} as Options;
+} as IUploadsConfigs;

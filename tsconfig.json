@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["@types/jest"],
+    "moduleResolution": "node",
     "target": "es2017",
     "module": "commonjs",
     "lib": ["es6"],

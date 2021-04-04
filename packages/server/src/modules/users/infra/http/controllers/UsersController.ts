@@ -8,6 +8,7 @@ class UsersController {
     const { name, email, password } = req.body;
     const createUserService = container.resolve(CreateUserService);
     const user = await createUserService.execute({ name, email, password });
+    delete user.password_hash;
     return res.json(user);
   }
 }
