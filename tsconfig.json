@@ -4,7 +4,7 @@
     "moduleResolution": "node",
     "target": "es2017",
     "module": "commonjs",
-    "lib": ["es6"],
+    "lib": ["esnext"],
     "removeComments": true,
     "strict": true,
     "typeRoots": ["*/node_modules/@types", "*/src/@types"],

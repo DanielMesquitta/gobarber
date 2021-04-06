@@ -5,7 +5,7 @@ import { resolve } from 'path';
 const tmpFolder = resolve(__dirname, '..', '..', 'tmp');
 const uploadsFolder = resolve(tmpFolder, 'uploads');
 
-interface IUploadsConfigs extends Options {
+interface IUploadConfigs extends Options {
   tmpFolder: string;
   uploadsFolder: string;
 }
@@ -50,4 +50,4 @@ export default {
       );
     }
   },
-} as IUploadsConfigs;
+} as IUploadConfigs;

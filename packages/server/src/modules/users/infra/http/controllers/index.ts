@@ -1,3 +1,7 @@
+export { default as ForgotPasswordController } from './ForgotPasswordController';
+
+export { default as ResetPasswordController } from './ResetPasswordController';
+
 export { default as SessionsController } from './SessionsController';
 
 export { default as UserAvatarController } from './UserAvatarController';

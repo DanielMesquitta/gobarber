@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import { injectable, inject } from 'tsyringe';
 
 import {
@@ -27,8 +28,22 @@ class SendForgotPasswordEmailService {
   public async execute({ email }: IRequest): Promise<void> {
     const user = await this.usersRepository.findByEmail(email);
     if (!user) throw new AppError('This email is not registered');
-    await this.userTokensRepository.generate(user.id);
-    this.mailProvider.sendMail(email, 'Recovery email');
+    const { token } = await this.userTokensRepository.generate(user.id);
+    const file = resolve(__dirname, '..', 'views', 'forgot-password.hbs');
+    await this.mailProvider.sendMail({
+      to: {
+        name: user.name,
+        address: user.email,
+      },
+      subject: 'Password recovery',
+      template: {
+        file,
+        variables: {
+          name: user.name,
+          link: `http://localhost:3000/reset?token=${token}`,
+        },
+      },
+    });
   }
 }
 
