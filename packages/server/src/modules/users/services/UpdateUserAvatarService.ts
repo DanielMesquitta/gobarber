@@ -1,5 +1,4 @@
 import { injectable, inject } from 'tsyringe';
-import { getRepository } from 'typeorm';
 
 import { User } from '@modules/users/infra/typeorm/entities';
 import { IUsersRepository } from '@modules/users/repositories';

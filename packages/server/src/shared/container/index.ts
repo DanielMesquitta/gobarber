@@ -7,6 +7,8 @@ import { AppointmentsRepository } from '@modules/appointments/infra/typeorm/repo
 import { IAppointmentsRepository } from '@modules/appointments/repositories';
 import { UsersRepository } from '@modules/users/infra/typeorm/repositories';
 import { IUsersRepository } from '@modules/users/repositories';
+// import { UserTokensRepository } from '@modules/users/infra/typeorm/repositories';
+// import { IUserTokensRepository } from '@modules/users/repositories';
 
 container.registerSingleton<IAppointmentsRepository>(
   'AppointmentsRepository',
