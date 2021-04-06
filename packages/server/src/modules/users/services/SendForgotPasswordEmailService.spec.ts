@@ -7,12 +7,12 @@ import { AppError } from '@shared/errors';
 
 import { SendForgotPasswordEmailService } from '.';
 
-let fakeUsersRepository: FakeUsersRepository;
-let fakeUserTokensRepository: FakeUserTokensRepository;
-let fakeMailProvider: FakeMailProvider;
-let sendForgotPasswordEmailService: SendForgotPasswordEmailService;
-
 describe('SendForgotPasswordEmail', () => {
+  let fakeUsersRepository: FakeUsersRepository;
+  let fakeUserTokensRepository: FakeUserTokensRepository;
+  let fakeMailProvider: FakeMailProvider;
+  let sendForgotPasswordEmailService: SendForgotPasswordEmailService;
+
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeMailProvider = new FakeMailProvider();

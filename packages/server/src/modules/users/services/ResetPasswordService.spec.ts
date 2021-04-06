@@ -9,12 +9,12 @@ import { AppError } from '@shared/errors';
 import { ResetPasswordService } from '.';
 import { FakeHashProvider } from '../providers/HashProvider/fakes';
 
-let fakeUsersRepository: FakeUsersRepository;
-let fakeUserTokensRepository: FakeUserTokensRepository;
-let resetPasswordService: ResetPasswordService;
-let fakeHashProvider: FakeHashProvider;
-
 describe('ResetPassword', () => {
+  let fakeUsersRepository: FakeUsersRepository;
+  let fakeUserTokensRepository: FakeUserTokensRepository;
+  let resetPasswordService: ResetPasswordService;
+  let fakeHashProvider: FakeHashProvider;
+
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeUserTokensRepository = new FakeUserTokensRepository();

@@ -4,11 +4,11 @@ import { AppError } from '@shared/errors';
 
 import { UpdateUserAvatarService } from '.';
 
-let fakeStorageProvider: FakeStorageProvider;
-let fakeUsersRepository: FakeUsersRepository;
-let updateUserAvatarService: UpdateUserAvatarService;
-
 describe('UpdateUserAvatar', () => {
+  let fakeStorageProvider: FakeStorageProvider;
+  let fakeUsersRepository: FakeUsersRepository;
+  let updateUserAvatarService: UpdateUserAvatarService;
+
   beforeEach(() => {
     fakeStorageProvider = new FakeStorageProvider();
     fakeUsersRepository = new FakeUsersRepository();

@@ -4,12 +4,12 @@ import { AppError } from '@shared/errors';
 
 import { AuthenticateUserService, CreateUserService } from '.';
 
-let fakeUsersRepository: FakeUsersRepository;
-let fakeHashProvider: FakeHashProvider;
-let createUserService: CreateUserService;
-let authenticateUserService: AuthenticateUserService;
-
 describe('AuthenticateUser', () => {
+  let fakeUsersRepository: FakeUsersRepository;
+  let fakeHashProvider: FakeHashProvider;
+  let createUserService: CreateUserService;
+  let authenticateUserService: AuthenticateUserService;
+
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();

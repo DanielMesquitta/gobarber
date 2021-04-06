@@ -11,6 +11,6 @@ const resetPasswordController = new ResetPasswordController();
 
 sessionsRouter.post('/forgot', forgotPasswordController.create);
 
-sessionsRouter.post('/reset', resetPasswordController.create);
+sessionsRouter.patch('/reset', resetPasswordController.create);
 
 export default sessionsRouter;
