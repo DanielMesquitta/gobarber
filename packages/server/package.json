@@ -11,7 +11,7 @@
     "test": "jest",
     "db:migrate": "yarn typeorm migration:run",
     "db:revert": "yarn typeorm migration:revert",
-    "db:restart": "yarn db:revert; yarn db:revert; yarn db:revert; yarn db:migrate"
+    "db:restart": "sh \"db:restart.bash\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

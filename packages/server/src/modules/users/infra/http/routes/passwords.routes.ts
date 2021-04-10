@@ -3,7 +3,7 @@ import { Router } from 'express';
 import {
   ForgotPasswordController,
   ResetPasswordController,
-} from '../controllers';
+} from '@modules/users/infra/http/controllers';
 
 const sessionsRouter = Router();
 const forgotPasswordController = new ForgotPasswordController();

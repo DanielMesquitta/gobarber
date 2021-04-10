@@ -1,8 +1,8 @@
 import fs from 'fs';
 import handlebars from 'handlebars';
 
-import { IParseMailTemplateDTO } from '../dtos';
-import { IMailTemplateProvider } from '../models';
+import { IParseMailTemplateDTO } from '@shared/container/providers/MailTemplateProvider/dtos';
+import { IMailTemplateProvider } from '@shared/container/providers/MailTemplateProvider/models';
 
 class HandlebarsMailTemplateProvider implements IMailTemplateProvider {
   public async parse({

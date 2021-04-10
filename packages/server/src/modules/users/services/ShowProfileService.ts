@@ -1,9 +1,8 @@
 import { injectable, inject } from 'tsyringe';
 
 import { User } from '@modules/users/infra/typeorm/entities';
+import { IUsersRepository } from '@modules/users/repositories';
 import { AppError } from '@shared/errors';
-
-import { IUsersRepository } from '../repositories';
 
 interface IRequest {
   user_id: string;

@@ -1,6 +1,5 @@
+import { ISendMailDTO } from '@shared/container/providers/MailProvider/dtos';
 import { IMailProvider } from '@shared/container/providers/MailProvider/models';
-
-import { ISendMailDTO } from '../dtos';
 
 class FakeMailProvider implements IMailProvider {
   private messages: ISendMailDTO[] = [];

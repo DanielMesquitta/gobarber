@@ -1,4 +1,4 @@
-import { IParseMailTemplateDTO } from '../dtos';
+import { IParseMailTemplateDTO } from '@shared/container/providers/MailTemplateProvider/dtos';
 
 interface IMailTemplateProvider {
   parse(data: IParseMailTemplateDTO): Promise<string>;

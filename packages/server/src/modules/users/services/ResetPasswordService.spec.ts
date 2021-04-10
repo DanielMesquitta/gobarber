@@ -1,5 +1,6 @@
 import addHours from 'date-fns/addHours';
 
+import { FakeHashProvider } from '@modules/users/providers/HashProvider/fakes';
 import {
   FakeUsersRepository,
   FakeUserTokensRepository,
@@ -7,7 +8,6 @@ import {
 import { AppError } from '@shared/errors';
 
 import { ResetPasswordService } from '.';
-import { FakeHashProvider } from '../providers/HashProvider/fakes';
 
 describe('ResetPassword', () => {
   let fakeUsersRepository: FakeUsersRepository;
